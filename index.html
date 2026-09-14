@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A plain-English guide to leaseholder rights, building safety, service charges, Section 20 consultation, director duties, managing agents, RTA recognition, redress and tribunal routes in England.">
+  <meta name="description" content="A plain-English guide to leaseholder rights in England, split into general leasehold rights and Higher-Risk Building (HRB/BSR) statutory requirements.">
   <title>Leaseholder Rights: Questions, Law and Action</title>
   <style>
     :root {
@@ -15,6 +15,7 @@
       --brand: #0a4f70;
       --brand-dark: #073d56;
       --accent: #a53a0c;
+      --hrb-badge: #7a2205;
       --focus: #ffbf47;
       --max: 74rem;
     }
@@ -63,23 +64,76 @@
     .question-index {
       background: var(--surface);
       border: 1px solid var(--line);
-      padding: 1.25rem;
-      margin-bottom: 2rem;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
       box-shadow: 0 1px 2px rgb(23 33 43 / 8%);
     }
 
-    .question-index h2 { color: var(--brand-dark); }
-    .question-index ol { columns: 2; column-gap: 2.5rem; padding-left: 1.4rem; }
-    .question-index li { break-inside: avoid; margin: 0.55rem 0; }
+    .question-index h2 { color: var(--brand-dark); margin-bottom: 1rem; }
+
+    .index-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .index-col h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--line);
+      color: var(--brand);
+    }
+
+    .index-col.hrb-col h3 {
+      color: var(--hrb-badge);
+      border-bottom-color: #e2b6a7;
+    }
+
+    .question-index ol {
+      margin: 0;
+      padding-left: 1.4rem;
+    }
+
+    .question-index li {
+      margin: 0.5rem 0;
+    }
+
+    .group-divider {
+      margin: 3rem 0 1.5rem;
+      padding: 0.85rem 1.25rem;
+      background: var(--brand-dark);
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    .group-divider.hrb-divider {
+      background: #4a1505;
+      border-left: 0.4rem solid var(--accent);
+    }
+
+    .group-divider h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      color: #fff;
+    }
+
+    .group-divider p {
+      margin: 0.35rem 0 0;
+      font-size: 0.95rem;
+      color: #f0e6e2;
+    }
 
     details {
       background: var(--surface);
       border: 1px solid var(--line);
       margin: 0 0 1rem;
       box-shadow: 0 1px 2px rgb(23 33 43 / 8%);
+      border-radius: 2px;
     }
 
     details[open] { border-color: #9eb9c8; }
+    details.hrb-item[open] { border-color: #d89e8c; }
 
     summary {
       cursor: pointer;
@@ -145,8 +199,8 @@
       font-size: 0.94rem;
     }
 
-    @media (max-width: 48rem) {
-      .question-index ol { columns: 1; }
+    @media (max-width: 52rem) {
+      .index-grid { grid-template-columns: 1fr; gap: 1.25rem; }
       header { padding-top: 2.5rem; }
     }
 
@@ -166,310 +220,349 @@
   <header>
     <div class="wrap">
       <h1>Leaseholder Rights</h1>
-      <p>A plain-English guide to questions leaseholders can ask, the legal framework in England, and the appropriate routes for information, complaint, redress and tribunal action.</p>
+      <p>A plain-English guide to questions leaseholders can ask in England, the statute and regulations that back each right, and practical escalation routes for inspection, complaint, redress and tribunal action.</p>
     </div>
   </header>
 
   <main class="wrap">
     <aside class="notice" aria-label="Important note">
-      <strong>Important:</strong> This is general information for leaseholders in England, not legal advice. Always check your lease, company articles, specific statutory wording, and official guidance before relying on a right or starting legal proceedings.
+      <strong>Important:</strong> This is general legal information for leaseholders in England, not legal advice. Always review your lease covenants, company articles, the specific statutory wording, and official guidance before acting or making formal applications.
     </aside>
 
     <nav class="question-index" aria-labelledby="questions-heading">
-      <h2 id="questions-heading">Start with your question</h2>
-      <ol>
-        <li><a href="#pap">Who is the Principal Accountable Person?</a></li>
-        <li><a href="#engagement">What resident-engagement strategy must exist?</a></li>
-        <li><a href="#automatic-information">What safety information must I receive automatically?</a></li>
-        <li><a href="#safety-documents">What building-safety documents can I request?</a></li>
-        <li><a href="#safety-complaint">What building-safety complaint process must exist?</a></li>
-        <li><a href="#occurrences">What happens after a serious safety occurrence?</a></li>
-        <li><a href="#section20">Was proper Section 20 consultation carried out?</a></li>
-        <li><a href="#dispensation">What if Section 20 was not followed?</a></li>
-        <li><a href="#service-charge-challenge">How can I challenge a service charge?</a></li>
-        <li><a href="#accounts">How can I inspect accounts, invoices and receipts?</a></li>
-        <li><a href="#protest">Can I pay under protest and still challenge?</a></li>
-        <li><a href="#protections">Am I protected from historical building-safety costs?</a></li>
-        <li><a href="#director-duties">What are the responsibilities of a Director?</a></li>
-        <li><a href="#rta">What is a Recognised Tenants' Association (RTA)?</a></li>
-        <li><a href="#agent-responsibilities">What responsibilities should a paid managing agent perform?</a></li>
-        <li><a href="#agent-complaint">What complaint process applies to a managing agent?</a></li>
-        <li><a href="#rtm">Can leaseholders take over management?</a></li>
-        <li><a href="#tribunal">What can the First-tier Tribunal decide?</a></li>
-      </ol>
+      <h2 id="questions-heading">Quick Question Index</h2>
+      <div class="index-grid">
+        <div class="index-col">
+          <h3>Part 1: General Leasehold &amp; Governance</h3>
+          <ol>
+            <li><a href="#section20">Was proper Section 20 consultation carried out?</a></li>
+            <li><a href="#dispensation">What if Section 20 was not followed?</a></li>
+            <li><a href="#service-charge-challenge">How can I challenge a service charge?</a></li>
+            <li><a href="#accounts">How can I inspect accounts, invoices and receipts?</a></li>
+            <li><a href="#protest">Can I pay under protest and still challenge?</a></li>
+            <li><a href="#protections">Am I protected from historical defect costs?</a></li>
+            <li><a href="#director-duties">What are the responsibilities of a Director?</a></li>
+            <li><a href="#rta">What is a Recognised Tenants' Association?</a></li>
+            <li><a href="#agent-responsibilities">What should a paid managing agent perform?</a></li>
+            <li><a href="#agent-complaint">What complaint process applies to a managing agent?</a></li>
+            <li><a href="#rtm">Can leaseholders take over management?</a></li>
+            <li><a href="#tribunal">What can the First-tier Tribunal decide?</a></li>
+          </ol>
+        </div>
+        <div class="index-col hrb-col">
+          <h3>Part 2: Higher-Risk Buildings (HRB &amp; BSR)</h3>
+          <ol start="13">
+            <li><a href="#pap">Who is the Principal Accountable Person?</a></li>
+            <li><a href="#engagement">What resident-engagement strategy must exist?</a></li>
+            <li><a href="#automatic-information">What safety info must I receive automatically?</a></li>
+            <li><a href="#safety-documents">What building-safety documents can I request?</a></li>
+            <li><a href="#safety-complaint">What building-safety complaints system must exist?</a></li>
+            <li><a href="#occurrences">What happens after a serious safety occurrence?</a></li>
+            <li><a href="#golden-thread">What is the "Golden Thread" of information?</a></li>
+          </ol>
+        </div>
+      </div>
     </nav>
 
-    <details id="pap">
-      <summary>1. Who is the Principal Accountable Person (PAP) for my building?</summary>
-      <div class="answer">
-        <h3>What it is</h3>
-        <p>For an occupied higher-risk building, the Principal Accountable Person (PAP) is the Accountable Person responsible for the structure and exterior of the building. In practical terms, this will often be the freeholder, a resident management company, a right-to-manage company, or another organisation holding the relevant legal estate.</p>
-        <h3>The fact to establish</h3>
-        <p>Ask for the PAP's legal name, company number, registered address, named point of contact and the building's BSR registration details. For registered higher-risk buildings, the public register is a useful independent starting point.</p>
-        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, sections 72–77; Higher-Risk Buildings (Descriptions and Supplementary Provisions) Regulations 2023.</div>
-        <div class="contact"><strong>Who to contact:</strong> The Principal Accountable Person; the managing agent; the <a href="https://www.gov.uk/guidance/find-a-registered-high-rise-residential-building">BSR public register</a>; HM Land Registry for title information.</div>
-      </div>
-    </details>
-
-    <details id="engagement">
-      <summary>2. What resident-engagement strategy must be in place?</summary>
-      <div class="answer">
-        <h3>What it is</h3>
-        <p>The PAP of an occupied higher-risk building must prepare a written Residents' Engagement Strategy, consult residents and owners on it, and act in accordance with it.</p>
-        <h3>The fact to establish</h3>
-        <p>Ask for the current strategy, the date it was last reviewed, evidence of consultation, the communication methods used, how responses are recorded, and how the PAP will explain decisions that affect building-safety risks.</p>
-        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 91; Higher-Risk Buildings (Management of Safety Risks etc.) (England) Regulations 2023, Part 2.</div>
-        <div class="contact"><strong>Who to contact:</strong> The PAP first. If the building-safety complaints process has been exhausted, report relevant concerns to the <a href="https://www.gov.uk/guidance/contact-the-building-safety-regulator">Building Safety Regulator</a>.</div>
-      </div>
-    </details>
-
-    <details id="automatic-information">
-      <summary>3. What building-safety information must I receive automatically?</summary>
-      <div class="answer">
-        <h3>What it is</h3>
-        <p>Accountable Persons for occupied higher-risk buildings have duties to provide prescribed building-safety information proactively to residents and owners of residential units.</p>
-        <h3>The fact to establish</h3>
-        <p>Ask what information has been issued, when it was issued, the format used, and how it covers safety risks, evacuation information, the identity and contact details of the relevant dutyholders, and routes for reporting concerns.</p>
-        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 89; Higher-Risk Buildings (Keeping and Provision of Information etc.) (England) Regulations 2024, especially regulation 7 and the prescribed-information schedules.</div>
-        <div class="contact"><strong>Who to contact:</strong> The PAP or Accountable Person. Retain a dated copy of any request and response.</div>
-      </div>
-    </details>
-
-    <details id="safety-documents">
-      <summary>4. What building-safety documents can I request?</summary>
-      <div class="answer">
-        <h3>What it is</h3>
-        <p>A resident aged 16 or over, and an owner of a residential unit, may request prescribed information or documents from the Accountable Person for an occupied higher-risk building.</p>
-        <h3>The fact to establish</h3>
-        <p>Make a specific written request. Depending on the request and applicable exceptions, this may include documents or information relating to the safety case, safety risks, risk assessments, inspection arrangements, resident engagement and the building-safety management system.</p>
-        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 92; Higher-Risk Buildings (Keeping and Provision of Information etc.) (England) Regulations 2024, including regulations 14–18 and Schedule 3.</div>
-        <div class="contact"><strong>Who to contact:</strong> The PAP or relevant Accountable Person. If information is withheld, ask for the statutory basis and whether an exception—for example, security—has been relied on.</div>
-      </div>
-    </details>
-
-    <details id="safety-complaint">
-      <summary>5. What complaint process must exist for building-safety concerns?</summary>
-      <div class="answer">
-        <h3>What it is</h3>
-        <p>The PAP must establish and operate a system for investigating relevant building-safety complaints. It should be accessible and tell residents how concerns will be received, investigated and answered.</p>
-        <h3>The fact to establish</h3>
-        <p>Ask for the current written procedure, contact address, acknowledgement and response targets, escalation route, and confirmation that your complaint has been logged as a building-safety complaint.</p>
-        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 93; Higher-Risk Buildings (Management of Safety Risks etc.) (England) Regulations 2023.</div>
-        <div class="contact"><strong>Who to contact:</strong> The PAP's designated complaint contact first. When that procedure has been exhausted, see <a href="https://www.gov.uk/guidance/complain-about-a-building-safety-risk-in-a-high-rise-building">BSR guidance on building-safety complaints</a>.</div>
-      </div>
-    </details>
-
-    <details id="occurrences">
-      <summary>6. What happens if there is a serious building-safety occurrence?</summary>
-      <div class="answer">
-        <h3>What it is</h3>
-        <p>Accountable Persons have a mandatory-occurrence reporting regime for certain safety occurrences that create, or risk creating, a significant risk to the safety of people in or about a higher-risk building.</p>
-        <h3>The fact to establish</h3>
-        <p>Ask whether an incident has been assessed against the reportable-occurrence criteria, who made that assessment, what immediate risk controls were applied and whether a report was made to the BSR where required.</p>
-        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 87; Higher-Risk Buildings (Mandatory Occurrence Reporting) (England) Regulations 2023.</div>
-        <div class="contact"><strong>Who to contact:</strong> Report an immediate threat to life through 999. For building-safety management concerns, use the PAP's process and, after that route is exhausted, the BSR.</div>
-      </div>
-    </details>
+    <!-- PART 1: GENERAL LEASEHOLD & GOVERNANCE -->
+    <div class="group-divider">
+      <h2>Part 1: General Leasehold Rights, Consultation &amp; Block Governance</h2>
+      <p>Applies to residential leasehold properties across England, covering service charges, consultation, company directors, managing agents, and the Tribunal.</p>
+    </div>
 
     <details id="section20">
-      <summary>7. Was proper Section 20 consultation carried out for major works?</summary>
+      <summary>1. Was proper Section 20 consultation carried out for major works?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>Section 20 consultation protects leaseholders where qualifying works would result in any leaseholder contributing more than £250, or where a qualifying long-term agreement would cost any leaseholder more than £100 in any accounting period.</p>
+        <p>Section 20 consultation protects leaseholders where qualifying works would result in any single leaseholder contributing more than £250, or where a qualifying long-term agreement costs any single leaseholder more than £100 in an accounting year.</p>
         <h3>What a qualifying-works consultation should look like</h3>
         <ol>
-          <li><strong>Notice of Intention:</strong> A written notice describing the proposed works, explaining why they are necessary, inviting observations and allowing contractor nominations. The consultation period must be at least 30 days.</li>
-          <li><strong>Notice of Estimates:</strong> A written notice made after estimates are obtained, explaining where estimates can be inspected, setting out estimates as required by the Regulations, responding to relevant observations and allowing a further consultation period of at least 30 days.</li>
-          <li><strong>Notice of Award:</strong> Required in specified circumstances after contract award, including where the chosen contractor is not the lowest estimate or not a contractor nominated by leaseholders. It must state the reasons for the award and information about observations.</li>
+          <li><strong>Notice of Intention:</strong> A written notice describing the proposed works, explaining why they are necessary, inviting written observations and allowing leaseholder contractor nominations. The consultation period must run for at least 30 days.</li>
+          <li><strong>Notice of Estimates:</strong> A written notice prepared after tenders are received. It must make at least two estimates available for inspection (including any estimate from a leaseholder-nominated contractor), summarise previous observations, provide cost breakdowns, and allow a further 30-day consultation window.</li>
+          <li><strong>Notice of Award:</strong> Required where the awarded contractor was neither the lowest tender nor a leaseholder nominee. It must explain the specific reasons for the award and summarise observations within 21 days of entering into the contract.</li>
         </ol>
         <h3>The fact to establish</h3>
-        <p>Ask for each notice, the date and method of service, the complete specification, every estimate, leaseholder observations and responses, contractor nominations, the selection rationale, contract award date, and evidence that no commitment was made prematurely.</p>
-        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, sections 20 and 20ZA; Service Charges (Consultation Requirements) (England) Regulations 2003.</div>
-        <div class="contact"><strong>Who to contact:</strong> The landlord or managing agent first. For disputed payability, reasonableness or consultation compliance, consider the First-tier Tribunal (Property Chamber).</div>
+        <p>Ask for copies of all served notices, exact dates and methods of service, specifications, tenders received, leaseholder nominations, and proof that no contractor was appointed or work started before the process lawfully concluded.</p>
+        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, sections 20 and 20ZA; Service Charges (Consultation Requirements) (England) Regulations 2003 (SI 2003/1987).</div>
+        <div class="contact"><strong>Who to contact:</strong> The landlord or managing agent first. If consultation was breached, consider applying to the First-tier Tribunal (Property Chamber).</div>
       </div>
     </details>
 
     <details id="dispensation">
-      <summary>8. What if Section 20 consultation was not done properly?</summary>
+      <summary>2. What if Section 20 consultation was not done properly?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>Failure to comply with Section 20 limits recovery from an individual leaseholder to £250 for qualifying works, or £100 in an accounting period for a qualifying long-term agreement, unless the First-tier Tribunal grants dispensation.</p>
+        <p>If a landlord or management company fails to comply with statutory Section 20 consultation requirements, their statutory recovery is capped at £250 per leaseholder for works (£100 for long-term agreements), unless the First-tier Tribunal grants dispensation.</p>
         <h3>The fact to establish</h3>
-        <p>Ask whether a dispensation application has been made, obtain the application and evidence, and identify the practical prejudice caused by the lack of consultation: for example, lost opportunity to comment on scope, nominate a contractor, challenge price, or influence timing and procurement.</p>
-        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, section 20ZA; Service Charges (Consultation Requirements) (England) Regulations 2003. The leading case is <em>Daejan Investments Ltd v Benson</em> [2013] UKSC 14, which addresses prejudice and dispensation.</div>
-        <div class="contact"><strong>Who to contact:</strong> First-tier Tribunal (Property Chamber); <a href="https://www.lease-advice.org/">LEASE</a> for independent leasehold information.</div>
+        <p>Ask whether an application for dispensation under Section 20ZA has been submitted to the First-tier Tribunal. Leaseholders can oppose dispensation by identifying concrete prejudice: for example, being denied the ability to propose alternative contractors, dispute unreasonable specifications, or test market pricing.</p>
+        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, section 20ZA. The leading Supreme Court authority is <em>Daejan Investments Ltd v Benson</em> [2013] UKSC 14.</div>
+        <div class="contact"><strong>Who to contact:</strong> The First-tier Tribunal (Property Chamber); <a href="https://www.lease-advice.org/">LEASE</a> for free procedural advice.</div>
       </div>
     </details>
 
     <details id="service-charge-challenge">
-      <summary>9. How do I challenge an unreasonable or non-payable service charge?</summary>
+      <summary>3. How do I challenge an unreasonable or non-payable service charge?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>The First-tier Tribunal can determine whether a service charge is payable and, if so, who must pay it, how much is payable, when it is payable and how it may be paid.</p>
+        <p>Leaseholders have the statutory right to challenge whether a service charge is payable and whether costs are reasonable by applying to the First-tier Tribunal (Property Chamber).</p>
         <h3>The fact to establish</h3>
-        <p>Identify the exact demand and the relevant lease clauses. Gather the demand, budget, accounts, invoices, consultation documents, correspondence, specifications and evidence showing why the cost was not reasonably incurred, the work was not of a reasonable standard, the demand is not permitted by the lease, or the sum is otherwise not payable.</p>
-        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, section 19 (reasonableness) and section 27A (Tribunal determination of payability).</div>
-        <div class="contact"><strong>Who to contact:</strong> The landlord or managing agent first; then the <a href="https://www.gov.uk/courts-tribunals/first-tier-tribunal-property-chamber">First-tier Tribunal (Property Chamber)</a> using the current HMCTS leasehold application process.</div>
+        <p>Cross-reference demands against lease provisions. The Tribunal examines: (1) whether the lease permits the landlord to recharge the item, (2) whether costs were reasonably incurred, and (3) whether works or services were provided to a reasonable standard.</p>
+        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, section 19 (reasonableness test) and section 27A (Tribunal jurisdiction to determine payability).</div>
+        <div class="contact"><strong>Who to contact:</strong> Landlord or managing agent via formal written dispute; then apply to the <a href="https://www.gov.uk/courts-tribunals/first-tier-tribunal-property-chamber">First-tier Tribunal (Property Chamber)</a> using form LEASE1.</div>
       </div>
     </details>
 
     <details id="accounts">
-      <summary>10. How do I inspect service-charge accounts, invoices and receipts?</summary>
+      <summary>4. How do I inspect service-charge accounts, invoices and receipts?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>Leaseholders can request a written summary of relevant service-charge costs. After receiving it, they can require reasonable facilities to inspect accounts, receipts and other supporting documents and take copies or extracts.</p>
+        <p>Leaseholders have enforceable statutory rights to receive a certified summary of service-charge accounts and to physically or digitally inspect the underlying vouchers, receipts, and contractor invoices.</p>
         <h3>The fact to establish</h3>
-        <p>Make the request in writing, quote the relevant statutory section, retain proof of delivery and request a clear appointment for inspection. Ask to see invoices, receipts, contracts, tender material, insurance documents, bank or trust-account evidence where relevant, and the allocation calculation for your flat.</p>
-        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, sections 21 and 22. Time limits and criminal offences for non-compliance are set out in those provisions.</div>
-        <div class="contact"><strong>Who to contact:</strong> The landlord, management company or managing agent named in the service-charge demand; LEASE for guidance; the First-tier Tribunal for relevant payability disputes.</div>
+        <p>Serve a written Section 21 request. The landlord must supply a summary within one month (or six months of financial year-end). Within six months of receiving the summary, serve a Section 22 notice requiring facilities to inspect invoices, contracts, receipts, and bank trust accounts within two months.</p>
+        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, sections 21 and 22. Unjustified failure to comply without reasonable excuse is a statutory summary offence under section 25.</div>
+        <div class="contact"><strong>Who to contact:</strong> Landlord, Resident Management Company, or managing agent; your local housing authority (which has powers to prosecute Section 25 offences); or the First-tier Tribunal.</div>
       </div>
     </details>
 
     <details id="protest">
-      <summary>11. Can I pay a disputed service charge under protest and still challenge it?</summary>
+      <summary>5. Can I pay a disputed service charge under protest and still challenge it?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>Yes. A leaseholder can pay while disputing the charge and still apply to the First-tier Tribunal for a determination. Payment alone does not mean that the leaseholder has agreed or admitted the charge.</p>
+        <p>Yes. Under English law, paying a disputed service charge does not waive your right to challenge it at the First-tier Tribunal. Paying under protest protects you against aggressive debt recovery or forfeiture action while keeping your challenge alive.</p>
         <h3>The fact to establish</h3>
-        <p>Paying may reduce the risk of arrears, recovery action and potential forfeiture consequences, but it does not itself decide the dispute. If you pay, write at the same time to identify the demand, state that payment is made without admission of liability and under protest, reserve your rights, and request the evidence needed to assess the charge.</p>
+        <p>Pay the sum alongside a contemporaneous written reservation of rights expressly stating that payment is made without admission that the certified sum is lawfully payable.</p>
         <blockquote>
           <strong>Example reservation of rights:</strong><br>
-          “I am paying £[amount] in respect of the service-charge demand dated [date]. This payment is made under protest and without admission that the sum is properly payable under my lease. I reserve all rights to seek a determination from the First-tier Tribunal under section 27A of the Landlord and Tenant Act 1985, including recovery of any amount found not to be payable. Please provide the complete supporting documents for the disputed items.”
+          “I am paying the sum of £[amount] in respect of demand [invoice number] dated [date]. This payment is made strictly under protest and without admission of liability that the charges are properly due or reasonable under the lease covenants. I reserve all statutory rights to challenge the payability and reasonableness of this charge at the First-tier Tribunal under section 27A of the Landlord and Tenant Act 1985 and to seek a full refund. Please supply supporting vouchers and tenders for this expenditure.”
         </blockquote>
-        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, section 27A(2): the Tribunal's jurisdiction applies whether or not payment has been made. Section 27A(3): a tenant is not taken to have agreed or admitted a matter merely because payment has been made.</div>
-        <div class="contact"><strong>Who to contact:</strong> Send the written reservation to the landlord or managing agent when paying. For a ruling, apply to the First-tier Tribunal (Property Chamber). Consider independent legal advice before withholding substantial sums.</div>
+        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, section 27A(2) (jurisdiction applies whether or not payment has been made) and section 27A(3) (payment does not constitute agreement or admission). See also <em>Sara &amp; Hossein Asset Holdings v Blacks Outdoor Retail Ltd</em> [2023] UKSC 2.</div>
+        <div class="contact"><strong>Who to contact:</strong> Landlord or managing agent; the First-tier Tribunal (Property Chamber).</div>
       </div>
     </details>
 
     <details id="protections">
-      <summary>12. Am I protected from historical building-safety defect costs?</summary>
+      <summary>6. Am I protected from historical building-safety defect costs?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>Building Safety Act leaseholder protections can restrict or prevent service-charge recovery for remediation of relevant historical building-safety defects, subject to statutory definitions, building eligibility, landlord status and leaseholder qualification.</p>
+        <p>Schedule 8 of the Building Safety Act 2022 provides statutory "waterfall" protections that shield qualifying leaseholders from paying service charges towards the remediation of historical building safety defects (relevant defects involving fire spread or structural collapse occurring within the 30-year period ending 27 June 2022).</p>
         <h3>The fact to establish</h3>
-        <p>Do not assume that a label such as “building safety” decides liability. Ask what defect is alleged, when it arose, why it is a relevant defect, whether the work is remediation, who the accountable landlord is, whether a Landlord Certificate has been issued, and how qualifying-lease protections have been assessed.</p>
-        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, Part 5 and Schedule 8; Building Safety (Leaseholder Protections) (Information etc.) (England) Regulations 2022.</div>
-        <div class="contact"><strong>Who to contact:</strong> The landlord or freeholder for Landlord Certificate information; <a href="https://www.lease-advice.org/">LEASE</a>; specialist legal advice where significant remediation costs are proposed; the First-tier Tribunal where appropriate.</div>
+        <p>Check if your lease is a "qualifying lease" (long lease granted before 14 February 2022, was your principal home on that date, or owned no more than 3 UK dwellings). Ensure a formal Landlord Certificate and Leaseholder Deed of Certificate are exchanged before accepting any remediation levy.</p>
+        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, sections 116–125 and Schedule 8; Building Safety (Leaseholder Protections) (Information etc.) (England) Regulations 2022 (SI 2022/859).</div>
+        <div class="contact"><strong>Who to contact:</strong> The landlord/freeholder for the Landlord Certificate; <a href="https://www.lease-advice.org/">LEASE</a>; or the First-tier Tribunal for a Remediation Order or challenge under Schedule 8.</div>
       </div>
     </details>
 
     <details id="director-duties">
-      <summary>13. What are the responsibilities of a Director of a Residents' Management Company (RMC)?</summary>
+      <summary>7. What are the responsibilities of a Director of a Residents' Management Company (RMC)?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>Directors of a resident management company (RMC) or right-to-manage (RTM) company are officers of a corporate entity. Even as unpaid leaseholder volunteers, they are bound by strict statutory duties codified in the Companies Act 2006. Directors owe their legal duties to the company as a whole, meaning they must act lawfully, impartially, and in accordance with the company's constitution.</p>
+        <p>Directors of a Resident Management Company (RMC) or Right to Manage (RTM) company are officers of a limited company. Even as unpaid leaseholder volunteers, they are bound by statutory fiduciary duties under the Companies Act 2006 to act lawfully, transparently, and in the interests of the company and all its members.</p>
         <h3>The seven statutory director duties</h3>
         <ol>
-          <li><strong>Act within powers (s.171):</strong> Comply with the company's Articles of Association and only exercise powers for the purposes for which they were conferred.</li>
-          <li><strong>Promote the success of the company (s.172):</strong> Act in good faith to promote the success of the company for the benefit of its members as a whole, taking into account long-term consequences and the need to act fairly between members.</li>
-          <li><strong>Exercise independent judgment (s.173):</strong> Form honest, independent decisions rather than blindly deferring to managing agents or individual board members.</li>
-          <li><strong>Exercise reasonable care, skill and diligence (s.174):</strong> Act with the care, skill and diligence expected of a reasonably diligent person with the general knowledge and skill that the director actually possesses.</li>
-          <li><strong>Avoid conflicts of interest (s.175):</strong> Avoid situations where personal or commercial interests clash with the company's interests.</li>
-          <li><strong>Not accept benefits from third parties (s.176):</strong> Never accept gifts, commissions, or hospitality from contractors, insurers, or managing agents.</li>
-          <li><strong>Declare interests in transactions or arrangements (s.177):</strong> Fully disclose any direct or indirect interest in any proposed contract or arrangement before the company enters into it.</li>
+          <li><strong>Act within powers (s.171):</strong> Comply with the company's constitution (Articles of Association) and exercise powers only for lawful purposes.</li>
+          <li><strong>Promote the success of the company (s.172):</strong> Act in good faith to promote the success of the company for the benefit of its members as a whole, considering long-term impact and fairness between members.</li>
+          <li><strong>Exercise independent judgment (s.173):</strong> Form genuine independent decisions rather than rubber-stamping proposals from managing agents or single board members.</li>
+          <li><strong>Exercise reasonable care, skill and diligence (s.174):</strong> Act with the diligence expected of a reasonably competent person with the knowledge and experience the director possesses.</li>
+          <li><strong>Avoid conflicts of interest (s.175):</strong> Avoid situations where personal, commercial, or family interests conflict with company duties.</li>
+          <li><strong>Not accept benefits from third parties (s.176):</strong> Refuse gifts, hospitality, commissions, or inducements from contractors, managing agents, or insurers.</li>
+          <li><strong>Declare interests in transactions (s.177):</strong> Fully disclose any personal interest in any proposed company contract before it is agreed.</li>
         </ol>
         <h3>The fact to establish</h3>
-        <p>Ask for the company's Articles of Association, board minutes, signed conflict-of-interest declarations, and the professional advice the board relied on when making high-value financial or procurement decisions. Check whether directors have complied with statutory filing duties at Companies House (annual accounts and confirmation statements).</p>
-        <div class="law"><strong>Law and legislation:</strong> Companies Act 2006, sections 171–177 (General duties of directors) and sections 303–305 (Members' statutory right to requisition a general meeting by 5% of voting rights).</div>
-        <div class="contact"><strong>Who to contact:</strong> The Company Secretary / Registered Office of the RMC; Companies House for public company filings; <a href="https://www.lease-advice.org/">LEASE</a>; or specialist corporate solicitors if a board acts ultra vires or in breach of statutory duty.</div>
+        <p>Ask to inspect company Articles, formal board minutes, conflict registers, and statutory filings. Note that members holding at least 5% of paid-up voting rights have the statutory power under Companies Act 2006 (s.303) to compel the board to call an Extraordinary General Meeting (EGM).</p>
+        <div class="law"><strong>Law and legislation:</strong> Companies Act 2006, sections 171–177 (General duties of directors) and sections 303–305 (Requisitioning general meetings).</div>
+        <div class="contact"><strong>Who to contact:</strong> RMC Company Secretary; Companies House public registry; <a href="https://www.lease-advice.org/">LEASE</a>.</div>
       </div>
     </details>
 
     <details id="rta">
-      <summary>14. What is a Recognised Tenants' Association (RTA) and why does it matter?</summary>
+      <summary>8. What is a Recognised Tenants' Association (RTA) and why does it matter?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>A Recognised Tenants' Association (RTA) is an independent, democratic association of leaseholders who contribute to common service charges that has been formally recognised either by written agreement from the landlord or by a certificate from the First-tier Tribunal (Property Chamber). Once recognised, an RTA holds powerful collective statutory rights that individual leaseholders do not possess alone.</p>
-        <h3>Statutory rights of an RTA</h3>
+        <p>A Recognised Tenants' Association (RTA) is an independent, democratic association of leaseholders that has received formal statutory recognition either by written certificate from the landlord or by an order from the First-tier Tribunal (Property Chamber).</p>
+        <h3>Statutory powers of an RTA</h3>
         <ul>
-          <li><strong>Section 20 consultation nominations:</strong> During major works consultations, an RTA has the statutory right to nominate a contractor from whom the landlord must try to obtain an estimate.</li>
-          <li><strong>Right to appoint a surveyor:</strong> Under the Housing Act 1996, an RTA can appoint a qualified surveyor to inspect documents, common parts, and advise on service charges.</li>
-          <li><strong>Right to be consulted on managing agents:</strong> The landlord must consult the RTA on the appointment or re-appointment of a managing agent.</li>
-          <li><strong>Service-charge scrutiny:</strong> An RTA secretary can request statutory summaries of service-charge accounts and inspect underlying vouchers on behalf of all members.</li>
+          <li><strong>Section 20 contractor nomination:</strong> The RTA has the statutory right to nominate a contractor from whom the landlord must try to obtain an estimate during major works consultations.</li>
+          <li><strong>Appointment of a surveyor:</strong> The RTA has statutory rights under Housing Act 1996 (s.84) to appoint a qualified surveyor to inspect service-charge accounts, documents, and communal parts.</li>
+          <li><strong>Right to be consulted on managing agents:</strong> The landlord must give notice to and consult the RTA on the appointment or change of a managing agent.</li>
+          <li><strong>Collective representation:</strong> The RTA secretary can request summaries of accounts and inspect vouchers on behalf of all participating members.</li>
         </ul>
         <h3>The fact to establish</h3>
-        <p>To obtain tribunal recognition in England, the association must generally represent at least 50% of the qualifying tenants, have an open constitution, democratic elections (Chair, Secretary, Treasurer), clear voting rules, and full independence from the landlord or developer.</p>
+        <p>To obtain tribunal certification, the association should represent at least 50% of the qualifying long leaseholders, operate with a published constitution, hold regular democratic elections, and maintain independent accounts.</p>
         <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985, section 29; The Tenants' Associations (Provisions Relating to Recognition and Provision of Information) (England) Regulations 2018 (SI 2018/1043); Housing Act 1996, section 84 and Schedule 4.</div>
-        <div class="contact"><strong>Who to contact:</strong> Apply in writing to the landlord for formal recognition. If refused or ignored, apply to the <a href="https://www.gov.uk/courts-tribunals/first-tier-tribunal-property-chamber">First-tier Tribunal (Property Chamber)</a> for an RTA recognition certificate.</div>
+        <div class="contact"><strong>Who to contact:</strong> Landlord or RMC board for voluntary recognition; or apply to the <a href="https://www.gov.uk/courts-tribunals/first-tier-tribunal-property-chamber">First-tier Tribunal (Property Chamber)</a> for a Certificate of Recognition.</div>
       </div>
     </details>
 
     <details id="agent-responsibilities">
-      <summary>15. What responsibilities should a paid managing agent perform?</summary>
+      <summary>9. What responsibilities should a paid managing agent perform?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>A paid managing agent is a professional contractor appointed by the landlord, RMC, or RTM company to carry out day-to-day estate administration under a formal management agreement. While the landlord or RMC remains ultimately legally responsible, the agent is paid management fees from the service charge and must perform their duties in accordance with statutory requirements, contract terms, and professional standards.</p>
+        <p>A paid managing agent is a professional commercial contractor engaged under a written Management Agreement to manage day-to-day estate affairs. While the landlord or RMC remains legally accountable, the agent is paid from service charges to execute professional estate administration competently and lawfully.</p>
         <h3>Core professional responsibilities</h3>
         <ol>
-          <li><strong>Statutory accounting and trust accounts:</strong> Hold all service-charge funds in designated statutory trust accounts (s.42 Landlord and Tenant Act 1987), produce clear annual budgets, reconcile year-end accounts promptly, and issue compliant statutory demands with required summary notices.</li>
-          <li><strong>Consultation compliance:</strong> Strictly administer Section 20 consultation processes for any qualifying works exceeding £250 per unit or contracts exceeding £100 per unit per year before instructing work or billing levies.</li>
-          <li><strong>Building maintenance and procurement:</strong> Commission proactive inspections, obtain competitive quotes, ensure contractors carry valid public liability insurance, and monitor quality of workmanship on communal repairs.</li>
-          <li><strong>Statutory health and safety:</strong> Organise and log required periodic assessments (Fire Risk Assessments, legionella testing, lift safety, asbestos surveys, electrical inspections) and assist dutyholders with Higher-Risk Building obligations where instructed.</li>
-          <li><strong>Transparent communication:</strong> Maintain accessible complaint-handling systems, respond within reasonable timelines, and give leaseholders access to invoices and vouchers under sections 21 and 22.</li>
+          <li><strong>Trust accounts &amp; client monies:</strong> Hold all service-charge funds in designated statutory trust accounts under section 42 of the Landlord and Tenant Act 1987, keeping funds strictly separated from the agent's own operating cash.</li>
+          <li><strong>Strict Section 20 compliance:</strong> Administer statutory consultation timetables, prepare specifications, obtain competitive quotes, and never instruct qualifying works or bill levies without lawful consultation or tribunal dispensation.</li>
+          <li><strong>Accounting &amp; budgets:</strong> Prepare realistic annual budgets, reconcile audited year-end accounts promptly, and provide prompt access to vouchers under sections 21 and 22.</li>
+          <li><strong>Statutory health &amp; safety:</strong> Commission and log required statutory inspections (Fire Risk Assessments, compartmentation, lift inspections, water hygiene/legionella, electrical testing) and advise the landlord on Building Safety Act duties.</li>
+          <li><strong>Contractor oversight:</strong> Vet contractors for public liability insurance, enforce quality standards, and manage tendering impartially without undisclosed commissions.</li>
         </ol>
         <h3>The fact to establish</h3>
-        <p>Ask for a copy of the written Management Agreement (specifying fee structure, core services versus additional fee items), proof of designated trust accounts for client monies, proof of professional indemnity insurance, and current membership details for a government-approved redress scheme.</p>
-        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985 (ss.18–30); Landlord and Tenant Act 1987 (s.42 trust fund requirements); RICS Service Charge Residential Management Code (statutory approved code under s.87 Leasehold Reform, Housing and Urban Development Act 1993).</div>
-        <div class="contact"><strong>Who to contact:</strong> The designated senior property manager or director of the managing agent; the RMC/Landlord client; <a href="https://www.tpos.co.uk/">The Property Ombudsman</a> or <a href="https://www.theprs.co.uk/">Property Redress Scheme</a>.</div>
+        <p>Ask to inspect the formal Management Agreement, schedule of core fees versus menu extras, proof of client money protection/trust banking, and proof of professional indemnity insurance.</p>
+        <div class="law"><strong>Law and legislation:</strong> Landlord and Tenant Act 1985; Landlord and Tenant Act 1987, section 42; RICS Service Charge Residential Management Code (Secretary of State-approved code under s.87 Leasehold Reform, Housing and Urban Development Act 1993).</div>
+        <div class="contact"><strong>Who to contact:</strong> Managing agent senior management; the landlord or RMC board; RICS Regulation (where RICS-regulated); approved redress schemes.</div>
       </div>
     </details>
 
     <details id="agent-complaint">
-      <summary>16. What complaint process exists for my managing agent?</summary>
+      <summary>10. What complaint process exists for my managing agent?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>A property-management agent carrying out qualifying property-management work in England must belong to an approved redress scheme. The agent should publish or supply a written complaints-handling procedure and identify its redress-scheme membership.</p>
-        <h3>The fact to establish</h3>
-        <p>Ask for the agent's written complaints procedure, named complaint handler, stage-one and final-response deadlines, redress scheme membership number, and whether the issue concerns the agent's conduct, the landlord's decision, or a lease/legal dispute. These are not always the same matter and can require different routes.</p>
+        <p>All property management agents operating in England are legally required to belong to a government-approved independent redress scheme: either The Property Ombudsman (TPO) or the Property Redress Scheme (PRS). These schemes provide free, independent adjudication with powers to award compensation up to £25,000.</p>
         <h3>Typical escalation route</h3>
         <ol>
-          <li>Raise a clear written complaint with the managing agent, setting out the facts, dates, documents, remedy sought and deadline for response.</li>
-          <li>Complete the agent's internal complaints procedure and obtain a final viewpoint letter, or wait for the scheme's required elapsed period where no response is given.</li>
-          <li>Escalate to the agent's actual redress scheme: either The Property Ombudsman (TPO) or the Property Redress Scheme (PRS).</li>
+          <li><strong>Internal complaint:</strong> Submit a formal written Stage 1 complaint to the agent's designated complaints officer, detailing specific failures, dates, and requested remedies.</li>
+          <li><strong>Final viewpoint:</strong> Complete the agent's internal procedure until you receive a final written "viewpoint letter", or after 8 weeks have passed without resolution.</li>
+          <li><strong>Independent redress:</strong> Escalate the complaint to the agent's registered redress scheme within 12 months of the final viewpoint letter.</li>
         </ol>
-        <div class="law"><strong>Law and legislation:</strong> Enterprise and Regulatory Reform Act 2013, section 83; Redress Schemes for Lettings Agency Work and Property Management Work (Requirement to Join etc.) (England) Order 2014.</div>
-        <div class="contact"><strong>Who to contact:</strong> The managing agent; <a href="https://www.tpos.co.uk/">The Property Ombudsman</a>; <a href="https://www.theprs.co.uk/">Property Redress Scheme</a>. Check which scheme the agent actually belongs to before escalating.</div>
+        <div class="law"><strong>Law and legislation:</strong> Enterprise and Regulatory Reform Act 2013, section 83; The Redress Schemes for Lettings Agency Work and Property Management Work (Requirement to Join etc.) (England) Order 2014 (SI 2014/2621).</div>
+        <div class="contact"><strong>Who to contact:</strong> The managing agent; <a href="https://www.tpos.co.uk/">The Property Ombudsman (TPO)</a>; <a href="https://www.theprs.co.uk/">Property Redress Scheme (PRS)</a>.</div>
       </div>
     </details>
 
     <details id="rtm">
-      <summary>17. Can leaseholders take over management from the landlord?</summary>
+      <summary>11. Can leaseholders take over management from the landlord?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>The Right to Manage (RTM) allows qualifying leaseholders to take over management functions through an RTM company without having to prove fault by the landlord. Collective enfranchisement is a separate route through which qualifying leaseholders may seek to acquire the freehold.</p>
+        <p>Under the Right to Manage (RTM), qualifying leaseholders have a statutory right to take over block management functions through a specialised company without having to prove fault, mismanagement, or breach of lease by the landlord.</p>
         <h3>The fact to establish</h3>
-        <p>Assess the building's eligibility, the number of qualifying tenants, participation levels, commercial-use limits, existing management arrangements, and the precise functions that would transfer. RTM is procedural: notice requirements, company structure and statutory deadlines matter.</p>
-        <div class="law"><strong>Law and legislation:</strong> Commonhold and Leasehold Reform Act 2002, Part 2 (Right to Manage); Leasehold Reform, Housing and Urban Development Act 1993 (collective enfranchisement).</div>
-        <div class="contact"><strong>Who to contact:</strong> LEASE; an RTM specialist; a solicitor and valuer experienced in collective enfranchisement where freehold acquisition is being considered.</div>
+        <p>Check that the building qualifies (self-contained or part of a building, contains at least two flats, at least two-thirds held by qualifying long leaseholders, and non-residential floor area does not exceed 25%). At least 50% of qualifying leaseholders must become members of the RTM company before serving the formal claim notice.</p>
+        <div class="law"><strong>Law and legislation:</strong> Commonhold and Leasehold Reform Act 2002, Part 2 (sections 71–113).</div>
+        <div class="contact"><strong>Who to contact:</strong> <a href="https://www.lease-advice.org/">LEASE</a> for free RTM guidance; specialist block-management solicitors.</div>
       </div>
     </details>
 
     <details id="tribunal">
-      <summary>18. What types of leasehold dispute can the First-tier Tribunal decide?</summary>
+      <summary>12. What types of leasehold dispute can the First-tier Tribunal decide?</summary>
       <div class="answer">
         <h3>What it is</h3>
-        <p>The First-tier Tribunal (Property Chamber) is the specialist tribunal for many residential leasehold disputes in England. It is not a general complaints service: its jurisdiction depends on the particular statute and remedy sought.</p>
-        <h3>Common application routes</h3>
+        <p>The First-tier Tribunal (Property Chamber) is the specialist judicial body in England that hears residential leasehold disputes. It is an accessible tribunal designed to resolve legal and financial disagreements without needing high-court litigation costs.</p>
+        <h3>Common statutory application types</h3>
         <ul>
-          <li><strong>Service-charge payability and reasonableness:</strong> Landlord and Tenant Act 1985, section 27A.</li>
-          <li><strong>Dispensation from consultation requirements:</strong> Landlord and Tenant Act 1985, section 20ZA.</li>
-          <li><strong>Appointment of a manager:</strong> Landlord and Tenant Act 1987, section 24, where statutory grounds and notice requirements are met.</li>
-          <li><strong>Administration charges:</strong> Commonhold and Leasehold Reform Act 2002, Schedule 11.</li>
-          <li><strong>Right to Manage disputes:</strong> Commonhold and Leasehold Reform Act 2002, Part 2.</li>
-          <li><strong>Building-safety remedies:</strong> Building Safety Act 2022 provisions including remediation orders and remediation contribution orders, where applicable.</li>
+          <li><strong>Service charge payability &amp; reasonableness:</strong> Section 27A, Landlord and Tenant Act 1985.</li>
+          <li><strong>Dispensation from consultation:</strong> Section 20ZA, Landlord and Tenant Act 1985.</li>
+          <li><strong>Appointment of an independent manager:</strong> Section 24, Landlord and Tenant Act 1987 (where a landlord or RMC has failed in its management covenants).</li>
+          <li><strong>Administration charge challenges:</strong> Schedule 11, Commonhold and Leasehold Reform Act 2002.</li>
+          <li><strong>Right to Manage eligibility:</strong> Section 84, Commonhold and Leasehold Reform Act 2002.</li>
+          <li><strong>Building Safety Act Remediation Orders:</strong> Section 123, Building Safety Act 2022.</li>
         </ul>
+        <div class="law"><strong>Law and legislation:</strong> Tribunals, Courts and Enforcement Act 2007; Landlord and Tenant Act 1985 &amp; 1987; Commonhold and Leasehold Reform Act 2002; Building Safety Act 2022.</div>
+        <div class="contact"><strong>Who to contact:</strong> <a href="https://www.gov.uk/courts-tribunals/first-tier-tribunal-property-chamber">HM Courts &amp; Tribunals Service — First-tier Tribunal (Property Chamber)</a>; LEASE for guidance.</div>
+      </div>
+    </details>
+
+    <!-- PART 2: HIGHER-RISK BUILDINGS & BSR -->
+    <div class="group-divider hrb-divider">
+      <h2>Part 2: Higher-Risk Buildings (HRB) &amp; Building Safety Regulator (BSR)</h2>
+      <p>Mandatory statutory duties applying to residential buildings in England that are at least 18 metres tall or have 7 or more storeys with at least 2 residential units.</p>
+    </div>
+
+    <details id="pap" class="hrb-item">
+      <summary>13. Who is the Principal Accountable Person (PAP) for my building?</summary>
+      <div class="answer">
+        <h3>What it is</h3>
+        <p>In an occupied Higher-Risk Building, the Principal Accountable Person (PAP) is the legal entity that owns or has legal responsibility for the building's structure and exterior. The PAP is the lead statutory dutyholder responsible to the Building Safety Regulator (BSR) for overall structural and fire safety compliance.</p>
         <h3>The fact to establish</h3>
-        <p>Before applying, identify the correct legal basis, respondent, remedy, disputed figures, lease clauses and evidence. Preserve a dated chronology and include only documents that support the issues the Tribunal has power to decide.</p>
-        <div class="law"><strong>Law and legislation:</strong> Tribunals, Courts and Enforcement Act 2007; Landlord and Tenant Act 1985; Landlord and Tenant Act 1987; Commonhold and Leasehold Reform Act 2002; Building Safety Act 2022.</div>
-        <div class="contact"><strong>Who to contact:</strong> <a href="https://www.gov.uk/courts-tribunals/first-tier-tribunal-property-chamber">HM Courts &amp; Tribunals Service — First-tier Tribunal (Property Chamber)</a>; LEASE; a solicitor or barrister for high-value, urgent or legally complex cases.</div>
+        <p>Ask for the PAP's legal corporate name, company number, registered address, designated Single Point of Contact (SPOC), and official BSR registration reference number. Search the public register to verify status.</p>
+        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, sections 72–77; The Higher-Risk Buildings (Descriptions and Supplementary Provisions) Regulations 2023 (SI 2023/275).</div>
+        <div class="contact"><strong>Who to contact:</strong> The PAP; the managing agent; search the <a href="https://www.gov.uk/guidance/find-a-registered-high-rise-residential-building">BSR Register of High-Rise Residential Buildings</a>.</div>
+      </div>
+    </details>
+
+    <details id="engagement" class="hrb-item">
+      <summary>14. What resident-engagement strategy must be in place?</summary>
+      <div class="answer">
+        <h3>What it is</h3>
+        <p>The PAP of an occupied Higher-Risk Building has a mandatory duty to prepare a written Residents' Engagement Strategy, consult all residents aged 16+ and flat owners on its contents, review it regularly, and act in accordance with it.</p>
+        <h3>The fact to establish</h3>
+        <p>Ask for a copy of the formal strategy document, proof of the date residents were consulted, how resident feedback was considered, and the specific channels available for residents to participate in building safety decisions.</p>
+        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 91; The Higher-Risk Buildings (Management of Safety Risks etc.) (England) Regulations 2023 (SI 2023/283), Part 2.</div>
+        <div class="contact"><strong>Who to contact:</strong> The PAP first; then report failure to comply to the <a href="https://www.gov.uk/guidance/contact-the-building-safety-regulator">Building Safety Regulator (BSR)</a>.</div>
+      </div>
+    </details>
+
+    <details id="automatic-information" class="hrb-item">
+      <summary>15. What building-safety information must I receive automatically?</summary>
+      <div class="answer">
+        <h3>What it is</h3>
+        <p>Accountable Persons have a legal duty under Section 89 to proactively provide prescribed building safety information packs to every resident aged 16+ and all unit owners without them having to request it.</p>
+        <h3>The fact to establish</h3>
+        <p>Ask when the statutory information pack was distributed. The pack must include a plain-English summary of building safety risks, evacuation instructions, fire prevention measures, dutyholder contact details, and guidance on how to raise complaints.</p>
+        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 89; The Higher-Risk Buildings (Keeping and Provision of Information etc.) (England) Regulations 2024 (SI 2024/41), regulation 7 and Schedule 2.</div>
+        <div class="contact"><strong>Who to contact:</strong> The Principal Accountable Person; escalate non-provision to the Building Safety Regulator.</div>
+      </div>
+    </details>
+
+    <details id="safety-documents" class="hrb-item">
+      <summary>16. What building-safety documents can I request?</summary>
+      <div class="answer">
+        <h3>What it is</h3>
+        <p>Under Section 92, any resident aged 16+ or flat owner has the statutory right to request and receive copies of prescribed building safety documents held by the Accountable Persons.</p>
+        <h3>The fact to establish</h3>
+        <p>Submit a formal written request quoting Section 92. You are entitled to receive documents such as the Safety Case Report, recent Fire Risk Assessments, structural condition surveys, inspection schedules, and the mandatory occurrence log.</p>
+        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 92; The Higher-Risk Buildings (Keeping and Provision of Information etc.) (England) Regulations 2024 (SI 2024/41), regulations 14–18 and Schedule 3.</div>
+        <div class="contact"><strong>Who to contact:</strong> The PAP or relevant Accountable Person. If refused, escalate to the Building Safety Regulator.</div>
+      </div>
+    </details>
+
+    <details id="safety-complaint" class="hrb-item">
+      <summary>17. What complaint process must exist for building-safety concerns?</summary>
+      <div class="answer">
+        <h3>What it is</h3>
+        <p>The PAP must establish, operate, and publicise an accessible system for investigating building safety complaints (such as concerns over structural integrity, spread of fire, or dutyholder performance).</p>
+        <h3>The fact to establish</h3>
+        <p>Ask for a copy of the formal building-safety complaints procedure, submission address, target response timetables, and confirmation of how complaints are logged in the building's permanent records.</p>
+        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 93; The Higher-Risk Buildings (Management of Safety Risks etc.) (England) Regulations 2023.</div>
+        <div class="contact"><strong>Who to contact:</strong> The PAP's complaints handler; then escalate unresolved safety risks directly to the <a href="https://www.gov.uk/guidance/complain-about-a-building-safety-risk-in-a-high-rise-building">BSR Safety Concerns Portal</a>.</div>
+      </div>
+    </details>
+
+    <details id="occurrences" class="hrb-item">
+      <summary>18. What happens if there is a serious building-safety occurrence?</summary>
+      <div class="answer">
+        <h3>What it is</h3>
+        <p>Accountable Persons are legally mandated to operate a Mandatory Occurrence Reporting (MOR) framework. Any structural failure or fire safety incident that causes, or presents a significant risk of causing, serious injury or death must be formally reported to the BSR.</p>
+        <h3>The fact to establish</h3>
+        <p>Ask whether an incident was evaluated against mandatory occurrence reporting thresholds, who conducted the assessment, and whether a formal notification was logged with the BSR within statutory deadlines.</p>
+        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 87; The Higher-Risk Buildings (Mandatory Occurrence Reporting) (England) Regulations 2023 (SI 2023/284).</div>
+        <div class="contact"><strong>Who to contact:</strong> Emergency services on 999 for imminent danger; the PAP; and the Building Safety Regulator.</div>
+      </div>
+    </details>
+
+    <details id="golden-thread" class="hrb-item">
+      <summary>19. What is the "Golden Thread" of building information?</summary>
+      <div class="answer">
+        <h3>What it is</h3>
+        <p>The "Golden Thread" is the statutory body of digital information that Accountable Persons and dutyholders are legally required to keep, maintain, and update throughout the entire lifecycle of a Higher-Risk Building. It serves as the single source of truth regarding the building's design, construction, structural integrity, and active and passive fire safety measures.</p>
+        <h3>Statutory storage and maintenance standards</h3>
+        <p>Under statutory regulations, Golden Thread information must be:</p>
+        <ul>
+          <li><strong>Digital:</strong> Kept in an electronic format that can be transferred without data loss.</li>
+          <li><strong>Accurate &amp; up-to-date:</strong> Regularly reviewed, recording who updated each document and when.</li>
+          <li><strong>Accessible:</strong> Presented in plain English and made available to the BSR, emergency services, and residents when requested under statutory rights.</li>
+          <li><strong>Secure:</strong> Protected by adequate cybersecurity controls against unauthorised tampering or accidental deletion.</li>
+        </ul>
+        <h3>What documents form the Golden Thread</h3>
+        <p>Under Schedule 1 of the 2024 Regulations, the Golden Thread includes: Key Building Information, structural and compartmentation surveys, fire strategy drawings, safety case reports, mandatory occurrence logs, building assessment certificates, and resident complaints logs.</p>
+        <div class="law"><strong>Law and legislation:</strong> Building Safety Act 2022, section 88; The Higher-Risk Buildings (Keeping and Provision of Information etc.) (England) Regulations 2024 (SI 2024/41), Part 2 (Regulation 4) and Schedule 1.</div>
+        <div class="contact"><strong>Who to contact:</strong> The Principal Accountable Person (who has primary responsibility for maintaining the thread); the <a href="https://www.gov.uk/guidance/contact-the-building-safety-regulator">Building Safety Regulator</a> if dutyholders fail to maintain statutory safety records.</div>
       </div>
     </details>
   </main>
 
   <footer>
     <div class="wrap">
-      <p><strong>Primary sources to bookmark:</strong> <a href="https://www.legislation.gov.uk/ukpga/1985/70/contents">Landlord and Tenant Act 1985</a>, <a href="https://www.legislation.gov.uk/ukpga/2006/46/contents">Companies Act 2006</a>, <a href="https://www.legislation.gov.uk/ukpga/2022/30/contents">Building Safety Act 2022</a>, <a href="https://www.legislation.gov.uk/uksi/2003/1987/contents">Service Charges (Consultation Requirements) (England) Regulations 2003</a>, and <a href="https://www.legislation.gov.uk/uksi/2018/1043/contents">The Tenants’ Associations Regulations 2018</a>.</p>
-      <p>Last reviewed: September 2026. Check current legislation, case law, tribunal procedure and official guidance before taking action.</p>
+      <p><strong>Primary statutory sources to bookmark:</strong> <a href="https://www.legislation.gov.uk/ukpga/1985/70/contents">Landlord and Tenant Act 1985</a>, <a href="https://www.legislation.gov.uk/ukpga/2006/46/contents">Companies Act 2006</a>, <a href="https://www.legislation.gov.uk/ukpga/2022/30/contents">Building Safety Act 2022</a>, <a href="https://www.legislation.gov.uk/uksi/2003/1987/contents">Service Charges (Consultation) Regulations 2003</a>, and <a href="https://www.legislation.gov.uk/uksi/2024/41/contents">Higher-Risk Buildings (Keeping and Provision of Information) Regulations 2024</a>.</p>
+      <p>Last reviewed: September 2026. Check current legislation, case law, tribunal directions, and official government guidance before acting.</p>
     </div>
   </footer>
 </body>
